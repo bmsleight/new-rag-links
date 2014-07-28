@@ -1,0 +1,52 @@
+Cmp-Mod V01 Created by CvPcb (2013-jul-07)-stable date = Sun 27 Jul 2014 22:30:03 BST
+
+BeginCmp
+TimeStamp = /53D51191;
+Reference = D1R1;
+ValeurCmp = 0330020P1;
+IdModule  = c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D511C3;
+Reference = D2A1;
+ValeurCmp = 	0330050P1;
+IdModule  = c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D511ED;
+Reference = D3G1;
+ValeurCmp = 0330010P1;
+IdModule  = c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D50FC8;
+Reference = IC1;
+ValeurCmp = ATTINY45-S;
+IdModule  = TSSOP8;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D51426;
+Reference = P1V1;
+ValeurCmp = TST;
+IdModule  = 1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D51496;
+Reference = P2G1;
+ValeurCmp = TST;
+IdModule  = 1PIN_SMD;
+EndCmp
+
+BeginCmp
+TimeStamp = /53D514C2;
+Reference = SW1;
+ValeurCmp = 3100060P1;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+EndListe

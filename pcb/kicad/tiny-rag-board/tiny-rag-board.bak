@@ -1,0 +1,162 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:tiny-rag-board-cache
+EELAYER 27 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date "27 jul 2014"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ATTINY45-S IC1
+U 1 1 53D50FC8
+P 5850 2250
+F 0 "IC1" H 4700 2650 40  0000 C CNN
+F 1 "ATTINY45-S" H 6850 1850 40  0000 C CNN
+F 2 "TSSOP" H 6800 2250 35  0000 C CIN
+F 3 "" H 5850 2250 60  0000 C CNN
+	1    5850 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D1R1
+U 1 1 53D51191
+P 2750 1800
+F 0 "D1R1" H 2750 1900 50  0000 C CNN
+F 1 "0330020P1" H 2750 1700 50  0000 C CNN
+F 2 "c_0603" H 2750 1800 60  0000 C CNN
+F 3 "~" H 2750 1800 60  0000 C CNN
+	1    2750 1800
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D2A1
+U 1 1 53D511C3
+P 3150 1800
+F 0 "D2A1" H 3150 1900 50  0000 C CNN
+F 1 "	0330050P1" H 3150 1700 50  0000 C CNN
+F 2 "c_0603" H 3150 1800 60  0000 C CNN
+F 3 "~" H 3150 1800 60  0000 C CNN
+	1    3150 1800
+	0    1    1    0   
+$EndComp
+$Comp
+L LED D3G1
+U 1 1 53D511ED
+P 3550 1800
+F 0 "D3G1" H 3550 1900 50  0000 C CNN
+F 1 "0330010P1" H 3550 1700 50  0000 C CNN
+F 2 "c_0603" H 3550 1800 60  0000 C CNN
+F 3 "~" H 3550 1800 60  0000 C CNN
+	1    3550 1800
+	0    1    1    0   
+$EndComp
+$Comp
+L TST P1V1
+U 1 1 53D51426
+P 7050 1150
+F 0 "P1V1" H 7050 1450 40  0000 C CNN
+F 1 "TST" H 7050 1400 30  0000 C CNN
+F 2 "1pin" H 7050 1150 60  0000 C CNN
+F 3 "~" H 7050 1150 60  0000 C CNN
+	1    7050 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L TST P2G1
+U 1 1 53D51496
+P 7700 2800
+F 0 "P2G1" H 7700 3100 40  0000 C CNN
+F 1 "TST" H 7700 3050 30  0000 C CNN
+F 2 "1PIN_SMD" H 7700 2800 60  0000 C CNN
+F 3 "~" H 7700 2800 60  0000 C CNN
+	1    7700 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L SW_PUSH SW1
+U 1 1 53D514C2
+P 3300 2600
+F 0 "SW1" H 3450 2710 50  0000 C CNN
+F 1 "3100060P1" H 3300 2520 50  0000 C CNN
+F 2 "4P-SMD-3100060P1" H 3300 2600 60  0000 C CNN
+F 3 "~" H 3300 2600 60  0000 C CNN
+	1    3300 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 2000 7200 2000
+Wire Wire Line
+	2750 1600 2750 1450
+Connection ~ 7050 1450
+Wire Wire Line
+	3150 1600 3150 1450
+Connection ~ 3150 1450
+Wire Wire Line
+	3150 2000 3150 2100
+Wire Wire Line
+	3150 2100 4500 2100
+Wire Wire Line
+	3550 1450 3550 1600
+Connection ~ 3550 1450
+Wire Wire Line
+	3550 2000 4500 2000
+Wire Wire Line
+	7050 1450 7050 1150
+Wire Wire Line
+	7300 1450 7300 2000
+Wire Wire Line
+	4500 2300 3600 2300
+Wire Wire Line
+	3600 2300 3600 2600
+Wire Wire Line
+	3000 2600 3000 2800
+Wire Wire Line
+	3000 2800 7700 2800
+Wire Wire Line
+	7200 2500 7200 2800
+Connection ~ 7200 2800
+Wire Wire Line
+	2750 1450 7300 1450
+Wire Wire Line
+	4550 2200 2750 2200
+Wire Wire Line
+	2750 2200 2750 2000
+$EndSCHEMATC

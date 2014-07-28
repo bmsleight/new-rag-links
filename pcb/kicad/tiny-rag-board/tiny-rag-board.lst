@@ -1,0 +1,22 @@
+eeschema (2013-jul-07)-stable  >> Creation date: Sun 27 Jul 2014 17:24:05 BST
+#Cmp ( order = Reference )
+| D1R1       0330020P1   
+| D2A1       	0330050P1  
+| D3G1       0330010P1   
+| IC1        ATTINY45-S  
+| P1V1       TST         
+| P2G1       TST         
+| SW1        3100060P1   
+#End Cmp
+
+#Cmp ( order = Value )
+| 0330020P1    D1R1      
+| 	0330050P1   D2A1      
+| 0330010P1    D3G1      
+| ATTINY45-S   IC1       
+| TST          P1V1      
+| TST          P2G1      
+| 3100060P1    SW1       
+#End Cmp
+
+#End List

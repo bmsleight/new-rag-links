@@ -3,7 +3,7 @@ $fn=60;
 
 module pcb()
 {
-  color("Green") cube([9,16,1.8], center=true);
+  color("Green") cube([9,19,1.8], center=true);
 }
 
 module inside()
@@ -91,7 +91,7 @@ difference()
   {
 //    bottom();
     top();
-//    pcb();
+    pcb();
    //translate([0,0,-0.5]) inside();
   }
   translate([0,0,-50]) cube([100,100,100]);
@@ -99,4 +99,4 @@ difference()
 
 
 //!rotate([-90,0,0]) top();
-!bottom();
+//!bottom();
