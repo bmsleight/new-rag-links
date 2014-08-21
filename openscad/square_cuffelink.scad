@@ -50,9 +50,9 @@ module top()
         }
       }
     }
-    translate([0,0,0.5]) cube([10,22,6], center=true);
-    translate([0,0,-1]) cube([10,17,9], center=true);
-    translate([0,0,-1]) cube([10,17,9], center=true);
+    translate([0,0,0.5]) cube([9.6,22,6], center=true);
+    translate([0,0,-1]) cube([9.6,17,9], center=true);
+    translate([0,0,-1]) cube([9.6,17,9], center=true);
     // Screw holes
  #   translate([0,0,-3.75]) screw_holes(radius=0.80);
     // Light holes
@@ -71,7 +71,7 @@ module top()
 module bottom()
 {
   // base is "squeezed" by brim 
-  scale([0.95, 0.95,1])  difference()
+  scale([1, 1.025,1])  difference()
   {
     union()
     {
@@ -85,11 +85,34 @@ module bottom()
   }
 }
 
+module bottom_()
+{
+  // base is "squeezed" by brim 
+  scale([1, 1.,1])  difference()
+  {
+    union()
+    {
+      // scale as bottom is not rotated
+      cube([12,24,0.8], center=true);
+      translate([0,0,(15+0.8)/2]) cylinder(h=15,r=1.5,center=true);
+      translate([0,0,0.8]) cylinder(h=1,r1=3, r2=1.5,center=true);
+      translate([0,0,15-0.8]) cylinder(h=1,r1=1.2, r2=2.5,center=true);
+      difference()
+      {
+          rotate([0,0,0]) translate([0,0,(15+0.8)])  cube([25,5,2.5	], center=true);
+          translate([12,0,(15+1)])  cube([12,5*5,3*2], center=true);
+          translate([-12,0,(15+1)])  cube([12,5*5,3*2], center=true);
+      }
+    }
+  translate([0,0,0]) screw_holes(radius=1);
+  }
+}
+
 difference()
 {
   union()
   {
-//    bottom();
+   translate([0,0,-6])  rotate([180,0,0]) bottom_();
     top();
     pcb();
    //translate([0,0,-0.5]) inside();
@@ -99,4 +122,4 @@ difference()
 
 
 //!rotate([-90,0,0]) top();
-//!bottom();
+!rotate([-90,90,0])  bottom_();
