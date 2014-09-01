@@ -25,8 +25,10 @@ module inside()
 
 module screw_holes(radius=1.25)
 {
-#  translate([0,(24-3.5)/2,0]) cylinder(h=2.5,r=radius,center=true);
-  rotate([0,0,180]) translate([0,(24-3.5)/2,0]) cylinder(h=2.5,r=radius,center=true);
+  rotate([0,0,180]) translate([6,(21-3.)/2,0]) cylinder(h=10,r=radius,center=true);
+  rotate([0,0,180]) translate([-6,(21-3.)/2,0]) cylinder(h=10,r=radius,center=true);
+  translate([6,(21-3.)/2,0]) cylinder(h=10,r=radius,center=true);
+  translate([-6,(21-3.)/2,0]) cylinder(h=10,r=radius,center=true);
 }
 
 module light_hoods()
@@ -47,22 +49,25 @@ module top()
   {
     union()
     {
-      cube([12,24,9], center=true);
+      cube([15,23,9], center=true);
       translate([0,0,5])
       {
         // Top with boarder cut-out
         difference()
         {
-          translate([0,0,-0.25]) cube([12,24,0.5], center=true);
+          translate([0,0,-0.25]) cube([15,23,0.5], center=true);
           cube([6,14,2], center=true);
         }
       }
     }
-    translate([0,0,0.5]) cube([9.6,22,6], center=true);
-    translate([0,0,-1]) cube([9.6,17,9], center=true);
-    translate([0,0,-1]) cube([9.6,17,9], center=true);
+    translate([0,0,0.5]) cube([10,21,6], center=true);
+    translate([0,0,-1]) cube([10,16,9], center=true);
+    translate([0,0,-1]) cube([10,16,9], center=true);
+    // Extra space for inserting PCB
+    translate([0,0,-4]) cube([10,21,5], center=true);
+
     // Screw holes
- #   translate([0,0,-3.75]) screw_holes(radius=0.80);
+  #  translate([0,0,-3.75]) screw_holes(radius=0.60);
     // Light holes
     translate([0,0,5]) cylinder(h=5,r=1.0,center=true);
     translate([0,3.5,5])  cylinder(h=5,r=1.0,center=true);
@@ -71,11 +76,9 @@ module top()
     translate([0,12,1]) cube([6,5,3], center=true);
 
   }
-  // thin layer to support hoods
-//  translate([0,0,3.5-0.1]) cube([12,24,0.2], center=true);
-      // Side arms to support pcb step-out
+  // Side arms to support pcb step-out
   side_arms();
-  mirror([1s,0,0]) side_arms();
+  mirror([1,0,0]) side_arms();
 }
 
 
@@ -90,22 +93,7 @@ module side_arms()
 }
 
 
-module bottom()
-{
-  // base is "squeezed" by brim 
-  scale([1, 1.025,1])  difference()
-  {
-    union()
-    {
-      // scale as bottom is not rotated
-      cube([12,24,1], center=true);
-      translate([0,0,(10+1)/2]) cylinder(h=10,r=2,center=true);
-      translate([0,0,(10+1/2+7.5/2)]) cylinder(h=7.5,r1=2, r2=4,center=true);
-      translate([0,0,1]) cylinder(h=1,r1=3, r2=2,center=true);
-    }
-  translate([0,0,0]) screw_holes();
-  }
-}
+
 
 module bottom_()
 {
@@ -117,7 +105,7 @@ module bottom_()
       // scale as bottom is not rotated
       hull()
       {
-        cube([12,24,0.8], center=true);
+        cube([15,23,0.8], center=true);
         translate([0,0,0.8]) cube([6,6,0.8], center=true);
       }
       translate([0,0,0.8])
@@ -129,11 +117,11 @@ module bottom_()
       difference()
       {
           rotate([0,0,0]) translate([0,0,(15+0.8)])  cube([25,5,2.5	], center=true);
-          translate([12,0,(15+1)])  cube([12,5*5,3*2], center=true);
-          translate([-12,0,(15+1)])  cube([12,5*5,3*2], center=true);
+          translate([15,0,(15+1)])  cube([15,5*5,3*2], center=true);
+          translate([-15,0,(15+1)])  cube([15,5*5,3*2], center=true);
       }
     }
-  translate([0,0,0]) screw_holes(radius=1);
+  translate([0,0,0]) screw_holes(radius=0.8);
   }
 }
 
@@ -143,8 +131,8 @@ module button()
 {
   rotate([-90,0,0]) color("Blue") 
   {
-    cube([8,4,0.5], center=true);
-    translate([0,0,(5-0.5)/2])  cube([5,2,5], center=true);
+    cube([8,4,0.25], center=true);
+    translate([0,0,(5-0.25)/2])  cube([5,2,5], center=true);
   }
 
 }
@@ -153,12 +141,13 @@ difference()
 {
   union()
   {
-//   translate([0,0,-6])  rotate([180,0,0]) bottom_();
-    top();
+   top();
+   translate([0,0,-6])  rotate([180,0,180]) bottom_();
    translate([0,0,-1.25]) pcb();
-   translate([0,10.5,1])  button();
+   translate([0,10.,1])  button();
   }
-  translate([0,0,-50]) cube([100,100,100]);
+//  translate([0,-50,-50]) cube([100,100,100]);
+//  translate([0,-0,-50]) cube([100,100,100]);
 }
 
 
