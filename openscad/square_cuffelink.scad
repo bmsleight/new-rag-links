@@ -1,4 +1,4 @@
-$fn=60;
+$fn=120;
 
 
 module pcb()
@@ -93,6 +93,24 @@ module side_arms()
 }
 
 
+module cuffend_oneside()
+{
+  difference()
+  {
+    translate([14.75,-.8,0]) rotate([90,0,0]) cylinder(h=2.5, r=17.5, center=true);
+     // +0.1 to make sure manifold
+    translate([17.5*2+0.1,-1.,0]) cube([17.5*4,5,17.5*4], center=true);
+  }
+}
+
+module cuffend()
+{
+  union()
+  {
+    cuffend_oneside();
+    mirror([1,0,0]) cuffend_oneside();
+  }
+}
 
 
 module bottom_()
@@ -116,7 +134,8 @@ module bottom_()
       }
       difference()
       {
-          rotate([0,0,0]) translate([0,0,(15+0.8)])  cube([25,5,2.5	], center=true);
+//          rotate([0,0,0]) translate([0,0,(15+0.8)])  cube([25,5,2.5	], center=true);
+          translate([0,0,(15+0.8)]) rotate([-90,0,90])  cuffend();
           translate([15,0,(15+1)])  cube([15,5*5,3*2], center=true);
           translate([-15,0,(15+1)])  cube([15,5*5,3*2], center=true);
       }
@@ -152,5 +171,5 @@ difference()
 
 
 //!rotate([-90,0,0]) top();
-//!rotate([-90,90,0])  bottom_();
+!rotate([-90,90,0])  bottom_();
 //!rotate([90,0,0]) button();
